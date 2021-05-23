@@ -14,10 +14,9 @@ var result = `
 var n = 0
 var id = setInterval(()=>{
 	n+=1;
-	code.innerHTML = result.substring(0,n);
-	code.innerHTML = Prism.highlight(code.innerHTML,Prism.languages.css)
+	code.innerHTML = result.substring(0,n)
 	styleCSS.innerHTML = result.substring(0,n)
-	console.log(code.innerHTML,'yici')
+	console.log('oneTIme')
 	if (n>result.length) {
 		window.clearInterval(id)
 	}
