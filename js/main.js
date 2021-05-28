@@ -20,10 +20,7 @@ var id = setInterval(()=>{
 	if (n>result.length) {
 		window.clearInterval(id)
 	}
-
 },10)
-
-
 
 
 
