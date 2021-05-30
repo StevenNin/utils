@@ -1,6 +1,7 @@
 var http = require('http')
 var fs = require('fs')
 var url = require('url')
+const { resolve } = require('path')
 var port = process.argv[2]
 
 if (!port) {
@@ -27,7 +28,20 @@ var server = http.createServer(function (request, response) {
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write(string)
     response.end()
-  } else if (path === '/main.js') {
+  }else if(path === '/sign_up'&&method === 'GET'){
+    let string = fs.readFileSync('./sign_up.html','utf-8')
+    response.statusCode = 200
+    response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
+    response.write(string)
+    response.end()
+  }else if(path === '/sign_up'&&method === 'POST'){
+    readBody(request).then((body)=>{
+      console.log(body)
+      response.statusCode = 200
+      response.end()
+    })
+  }
+  else if (path === '/main.js') {
     let string = fs.readFileSync('./main.js', 'utf8')
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
@@ -67,6 +81,19 @@ var server = http.createServer(function (request, response) {
 
   /******** 代码结束，下面不要看 ************/
 })
+
+function readBody(requests){
+  return new Promise((resolve,reject)=>{
+    let body = []
+    request.on( 'data',(chunk)=>{
+      body.push(chunk)
+    }).on('end',()=>{
+      body.Buffer.concat(body).toString();
+      response.statusCode = 200;
+      response.end()
+    });
+  })
+} 
 
 server.listen(port)
 console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
