@@ -7,17 +7,38 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
   <link rel="stylesheet" href="css/default.css">
   <link rel="stylesheet" href="js/vendor/prism/prism.css">
-  <style id="styleCSS"></style>
+  <style id="styleTag"></style>
 </head>
 <body>
-	<pre id="code">
+	<!-- <pre id="code">
 		
 	</pre>
-  <button id="myButton">点我</button>
-  <!-- <form action="https://www.baidu.com" method="get">
-    <input type="password" name="password">
-    <input type="submit">
-  </form> -->
+  <button id="myButton">点我</button> -->
+  <div class="code-wrapper">
+    <pre id="code"></pre>
+  </div>
+  <div class="preview-wrapper">
+    <div class="preview">
+      <div class="wrapper">
+        <div class="lowerLip-wrapper">
+          <div class="lowerLip"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="upperLip left"></div>
+        <div class="upperLip right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button data-speed="slow">慢速</button>
+    <button data-speed="normal" class="active">中速</button>
+    <button data-speed="fast">快速</button>
+  </div>
+  <script src="js/vendor/jquery.min.js"></script>
   <script src="js/vendor/prism/prism.js"></script>
   <script src="./js/main.js"></script>
 
