@@ -82,14 +82,14 @@
 	 border: 2px solid #000;
    }
    /*
-	* 左眼在左边（废话）
+	* 左眼
 	*/
    .eye.left{
 	 right: 50%;
 	 margin-right: 90px;
    }
    /*
-	* 右眼在右边（废话）
+	* 右眼
 	*/
    .eye.right{
 	 left: 50%;
