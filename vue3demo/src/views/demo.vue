@@ -1,6 +1,6 @@
 <template>
   <div class="container" @scroll="onScroll" ref="container">
-    <div class="panel" :style="{paddingTop : paddingTop + 'px'}">
+    <div class="panel" ref="panel" :style="{paddingTop : paddingTop + 'px'}">
       <div class="item" v-for="item in List" :key="item">
         {{ item }}
       </div>
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { ref,reactive,computed,onMounted } from "vue";
+import { ref,computed,onMounted } from "vue";
 export default {
   setup() {
     let container = ref(null), panel = ref(null);
     let buffTop = 10 ,buffBottom =10 ,count = 0;
-    let raw = Array(100000).fill(0).map((i,v)=>`item-${i}`) ;
+    let raw = Array(100000).fill(0).map((i,v)=>`item-${v}`) ;
     let start  = ref(0), end = ref(1);
     let itemHeight = 1;
     let paddingTop = ref(0);
@@ -30,7 +30,7 @@ export default {
     const onScroll = function(e) {
       if(timer) clearTimeout(timer)
       timer = setTimeout(()=>{
-        let startValue = Math.floor(e.target.scrolTop / itemHeight)
+        let startValue = Math.floor(e.target.scrollTop / itemHeight)
         let buff = startValue > buffTop? buffTop:startValue
         start.value = startValue - buff;
         end.value = startValue + count + buffBottom
@@ -60,7 +60,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style  scoped>
   *{
     margin: 0;
     box-sizing: border-box;
