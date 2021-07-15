@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <router-link to="/demo">大数据</router-link>
+    <router-link to="/grid">grid布局</router-link>
   <!-- <router-link to="home">Home</router-link> -->
     <p>
       For a guide and recipes on how to configure / customize this project,<br>

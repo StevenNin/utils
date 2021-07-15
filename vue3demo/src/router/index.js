@@ -12,6 +12,10 @@ const routerHistorys = createWebHistory()
       {
         path: '/demo', 
         component: ()=>import('@/views/demo')
+      },
+      {
+        path: '/grid',
+        component: ()=>import('@/views/grid')
       }
     ]
   })
