@@ -25,7 +25,8 @@ export default {
         grid-template-columns: 100px 100px 100px;
         /* grid-template-columns: 150px 1fr 2fr; */
         /* grid-template-columns: repeat(auto-fill, 100px); */
-
+        grid-template-columns: 100px auto 100px;
+    
 
         grid-template-rows: 100px 100px 100px;
         /* grid-template-columns: 33.33% 33.33% 33.33%;
