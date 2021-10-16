@@ -50,7 +50,23 @@ window.innerWidth
 理解viewport
 
 
-div
+
+export function _debounce(fn,delay) {
+	var delay = delay || 200;
+	var timer;
+	return function() {
+		var th  = this;
+		var args = arguments;
+		if(timer) {
+			clearTimeout(timer);
+		}
+		time = setTimeout(function() {
+			timer = null;
+			fn.apply(th, args);
+		},delay)
+	}
+}
+
 
 
 
