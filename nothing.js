@@ -50,23 +50,7 @@ window.innerWidth
 理解viewport
 
 
-
-export function _debounce(fn,delay) {
-	var delay = delay || 200;
-	var timer;
-	return function() {
-		var th  = this;
-		var args = arguments;
-		if(timer) {
-			clearTimeout(timer);
-		}
-		time = setTimeout(function() {
-			timer = null;
-			fn.apply(th, args);
-		},delay)
-	}
-}
-
+div
 
 
 
@@ -567,6 +551,200 @@ js 的文件不会那么冗余
 
 
 
+html 标签的应用
+就是一个语意化过程的代码
+在最初的程序猿中，是没有前端这个板块的的，也没有什么优化，最多就是怎么用最少的代码
+生成我想展现的页面和数据
+用最简单方法展现我的目的
+
+
+前端中的基本数据类型有哪些
+string  boolean null undefined number object bigint symbol
+
+object 也包括数组、对象、正则、日期、等等
+
+<meta name='viewport' content ='device-wdith, initial-scale = 1.0'>
+
+H5 中常用的标签
+
+header main footer article
+
+cavas画板 video audio
+
+如何理解h5。本质是一个技术的合集，并不是一项技术，也可以理解为她是一个标准，并不是一个技术
+
+
+CSS
+
+border-box
+content-box
+box-sizing。来控制
+区别就是两种属性值的计算一个块状盒子的width 不一样
+一般默认为 content-box。就是内容的宽度 就等于设置的 盒子 的width 
+border-box 就是计算包括盒子 的外部border 和 padding 的值，不包括 margin ，这样其实更好控制ui的还原，我们可以更加轻松的控制布局，不用去额外计算padding 的设置
+
+
+垂直居中
+display： flex
+justify-content：center
+align-items : center
+
+
+absolute
+的方式 计算长宽的 然后控制展示在正中即可
+
+
+translate（-50% ， -50%）
+
+flex 的常用属性
+flex-grow: 指定容器占据剩余的空间的多少
+flex-direction： 指定容器饿排列方向的顺序
+flex-wrap ： flex 盒子 中的元素是否单行显示或者换行，允许我们控制行堆叠的方向
+
+
+BFC 块级 格式化上下文
+清楚浮动
+
+~~~js
+overflow: hidden;
+
+.main{
+	overflow:hidden
+}
+.clearfix::after{
+	content: '',
+	display：block,
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+触发条件
+html 跟元素
+flot ： 不为none
+position  为 absolute 或者 fixed 的绝对定位的元素
+行内元素display 为 inline-blcok
+over-flow 部位 visible
+
+ES6 
+
+块级作用
+就是声明的参数或者数据 只在当前的作用域有效，外部则访问不到的,内部的 作用域， 函数内部的函数可以访问其数据
+let const 区别就是 let 一般声明都是变量，  const 声明的都是常量数据
+
+箭头函数 ，，快捷执行函数
+()=>{}  括号中可以额放一些参数进去，然后 直接可以执行，执行的语句就放在 大阔号就行了
+
+其中尖头函数的作用域中的this 指向， 和一般声明函数不同， 它会继承尖头函数函数箭头函数parent的this
+
+
+参数的余数处理
+默认参数 声明一个函数的时候， 可以直接子啊接收参数的地方 声明函数的值，当然这个值是在没有传入的值时候当作 一个默认值来使用的
+
+剩余参数的用法
+就是 把参数剩余的部分 统计到一个对象总， 不论是是什么类型的数据， 都归纳在一起了
+
+展开运算符 ，  不怎么用到哈
+
+
+模版字面量
+
+常用的场景就是在字符串中插入一些 变量数据的 
+
+例如 var a  = 3
+
+var announcement =  "我们有"+ a+"个好用的武器" // 这种方式有点不习惯
+var announcement =  `我们有 ${a}个好用的武器` // 这种方式有点不习惯
+这种插入的数据 从手写 可可读性来讲， 都非常不错的
+中间插入的不仅可以是变量。也可以是一个语句，执行一段代码
+
+原有的字面量增强，
+更安全的 二进制字面量
+更安全的 八进制字面量
+
+对象属性增强
+可以在声明对象的时候 它的名字 可以进行一次语句的执行
+
+function quux(){return "OKOK"} 
+function add(){return 22}
+obj = {["baz" + quux() ]: 42 + add()}
+console.log(obj)
+
+key。和 value。都支持这种方式的 计算方法
+
+解构赋值
+let method = options.method;
+	let successFn = options.successFn;
+	let body = options.body;
+	let failFn  = options.failFn;
+	let headers = options.headers
+
+
+// es6 析构赋值  等同于上面的赋值
+	let(method,successFn,body,failFn,headers) = options
+
+
+模块的导入 和 导出，  
+vue  react 框架中 非常适用的一种模式 对于各个方法或者组件都进行模块化的管理， 更加合理 
+
+
+class 类的 声明继承
+基类 和 子类。最开始声明 的类都是基类。
+然后通过 extends。声明的class。都是 子类 
+在声明子类的 时候要注意 super()  吧子类的this 执行 定义到当前的环境 中 
+因为 子类在的construtctor 中的 this  会默认继承基类的参数方法 和 this 本身
+
+
+promise。直接声明一个promise。然后 执行
+其中可以执行的数据有  两种结果
+
+我们声明new 一个promise
+
+var   a = new  Promise(res=>{},rej=>{}){
+	res 就是数据通信成功后执行的代码
+
+	rej 是失败失踪的 顺序
+}
+
+手写一个promise。
+class Prosmie2{
+	queue1 = []
+	queue2 = []
+
+	constructor(fn) {
+		const resolve = (data)=>{
+			setTimeout(()=>{
+				for(var i = 0; i < queue1.length; i++){
+					this.queue1[i](data)
+				}
+			},100)
+		}
+		const reject = (reason)=>{
+			setTimeout(()=>{
+				for(var i = 0; i < queue2.length; i++){
+					this.queue1[i](reason)
+				}
+			},100)
+		}
+		fn(resolve,reject)
+	}
+	then(s,e){
+		this.queue1.push(s)
+		this.queue2.push(e)
+		return this
+	}
+}
+
+函数 防抖 和函数 节流
+throwttle   节流
+debounce。  防抖。还需要 细细理解 执行却比 字面 理解 还是不行。 虽然都是防治某一段时间频繁出发，但是这两个函数还是有区别的
+
+
+
+
+字符串支持 UNnicode 的格式数据
+
 
 
 # 简历的本质
@@ -874,6 +1052,8 @@ Webpack 一个模块式打包管理
 常使用Bootstrap、ElementUI、等前端样式框架进行开发
 熟练使用VueJs进行模块开发，了解双向数据绑定原理，熟练编写控制器、服务、组件、辅助插件等
 ```
+
+ https://github.com/daGaiGuanYu/ccz.git
   
 
 
