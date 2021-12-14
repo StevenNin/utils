@@ -49,3 +49,43 @@ Store3D.prototype.initCamera = function(){
     // 在场景中加入 我们 设置好默认数据的相机
     this.scene.add(this.camera)
 }
+
+// 声明一个渲染器
+
+Store3D.prototype.initRenderer  = function(){
+    this.renderer = new THREE.WebGLRenderer({
+        antialias : true,   // 反锯齿
+        alpha: true, // 设置背景色 透明
+        logarithmicDepthBuffer: true // 模型重叠的部分闪烁 起因是 z-fighting  需要设置这个参数来解决
+    });
+    this.renderer.setSize(window.innerWidth,window.innerHeight) // 渲染尺寸
+    this.renderer.setClearColor(0x39609B)  // 渲染的背景色
+    this.renderer.setPixelRatio(window.devicePixelRatio) // 渲染器的分辨率和浏览器的分辨率保持一致
+
+    let container = document.getElementById("container")
+    container.appendChild(this.renderer.domElement)
+
+    
+}
+
+// 声明渲染灯管的 环境光，光源 等 特效 效果
+Store3D.prototype.initLight = function() {
+    let ambient  = new THREE.DirectionalLight(0xFFFFFF,1)
+    ambient.position.set(0,0,0)
+    this.addObject(ambient)
+    // 平行光 类似太阳光
+    let directionalLight = new THREE.DirectionalLight(0xFFFFFF,0.3)  // 远光源  类似于太阳相当于地球的光源
+
+    directionalLight.position.set(0,200,0)
+    this.addObject(directionalLight)
+
+    // 点光源
+    let pointLight1  =  new THREE.PointLight(0xFFFFFF,0.3)
+    pointLight1.position.set(-500,200,0)
+    this.addObject(pointLight1)
+    let pointLight2  = new THREE.PointLight(0xFFFFFF,0.3)
+    pointLight2.position.set(500,200,0)
+    this.addObject(pointLight2)
+}
+
+
