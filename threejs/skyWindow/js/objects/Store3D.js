@@ -88,4 +88,28 @@ Store3D.prototype.initLight = function() {
     this.addObject(pointLight2)
 }
 
+// 场景中添加物体
+Store3D.prototype.addObject = function(object) {
+    this.scene.add(object)
+    this.objects.push(object)
+}
 
+// 建筑物
+
+Store3D.prototype.initBuilding = function(){
+    let builddingData = builddingObjects.objects;
+    for(let i = 0; i < builddingData.length; i++) {
+        let object = builddingData[i]
+        switch(object.objectsType){
+            case 'cube':
+                let cube = new Cube(obeject)
+                this.addObject(cube)
+        }
+    }
+}
+
+// 定时刷新
+Store3D.prototype.animate = function(){
+    requestAnimationFrame(this.animate.bind(this))
+    this.renderer.render(this.scene,this.camera)
+}
