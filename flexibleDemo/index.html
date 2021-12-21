@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"  content='width=device-width,maximum-scale=1.0'>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>个人分享页</title>
+    <!-- <script src="./js/flexible.min.js"></script> -->
+    <style type="text/css">
+        @charset "utf-8";
+        html{color:#000;background:#F8F8FA;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+        html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+        html,body{font-family:sans-serif; font-size: 40px;}
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+        input,select,textarea{font-size:100%}
+        table{border-collapse:collapse;border-spacing:0}
+        fieldset,img{border:0}
+        abbr,acronym{border:0;font-variant:normal}
+        del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}
+        ol,ul{list-style:none}
+        caption,th{text-align:left}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}
+        q:before,q:after{content:''}
+        sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+        sup{top:-.5em}
+        sub{bottom:-.25em}
+        a:hover{text-decoration:underline}
+        ins,a{text-decoration:none}
+        
+        header{
+            font-size: .426667rem /* 32/75 */;
+            font-weight: 500;
+            padding: .533333rem /* 40/75 */ 0;
+            text-align: center;
+            width: 100%;
+        }
+        .block{
+            background-color: #FFF;
+            padding:0 4% /* 30/75 */;
+        }
+        .topDivide{
+            border-top: 1px solid #E8E8E8;
+        }
+        .grayWord{
+            color: #929292;
+        }
+        .blueWord{
+            color: #4067DF;
+        }
+        .block:not(:first-of-type){
+            margin-top: .213333rem /* 16/75 */;
+        }
+        .flexBox-sb{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flexBox-ac{
+            display: flex;
+            align-items: center;
+        }
+        .flex-wrap{
+            flex-wrap: wrap;
+        }
+        .block .name{
+            height: 1.04rem /* 78/75 */;
+        }
+        .blueDivide{
+            background-color: #4067DF;
+            width: .066667rem /* 5/75 */;
+            margin-right: .173333rem /* 13/75 */;
+            height: .4rem /* 30/75 */;
+        }
+        .block .namee{
+            font-size: .373333rem /* 28/75 */;
+            font-weight: 500;
+        }
+        .tag{
+            color: #EE843C;
+            background-color: #FDF2EA;
+            border-radius: .053333rem /* 4/75 */;
+            padding: .04rem /* 3/75 */ .093333rem /* 7/75 */;
+            font-size: .293333rem /* 22/75 */ ;
+        }
+        .detail{
+            padding: .4rem /* 30/75 */ 0;
+            font-size: .32rem /* 24/75 */;
+        }
+        .detail .item:not(:first-of-type){
+            margin-top: .066667rem /* 5/75 */;
+        }
+        
+        .detailRight{
+            
+        }
+        .grades{
+            padding: .4rem /* 30/75 */ 0;
+            justify-content: flex-start;
+        }
+        .grades .item{
+            font-size: .33rem /* 24/75 */;
+            width: 33.3%;
+        }
+        .grades .item:nth-child(3n+3){
+            text-align: right;
+        }
+        .grades .item:nth-child(3n+2){
+            text-align: center;
+        }
+        .licenseList{
+            padding-bottom: .4rem /* 30/75 */;
+        }
+        .licenseInfo{
+            background-color: #F8F8FA;
+            font-size: .32rem /* 24/75 */;
+            margin-left: -4% ;
+            width: 100%;
+            padding: 0 4%;
+        }
+        .licenseTitle div{
+            margin: .346667rem /* 26/75 */ 0;
+        }
+        .licenseInfoItem{
+            width: 50%;
+        }
+        .licenseName{
+            font-size: .346667rem /* 26/75 */;
+        }
+        .licenseComp{
+            font-size: .32rem /* 24/75 */;
+        }
+        .licenseInfoItem{
+            margin: .2rem /* 15/75 */ 0;
+        }
+
+        .hornorInfo{
+            font-size: .32rem /* 24/75 */;
+        }
+        .hornorInfoItem{
+            padding-bottom: .4rem /* 30/75 */;
+        }
+    </style>
+</head>
+<body>
+    <header>苏明理</header>
+
+    <div class="personInfo block">
+        <div class="name flexBox-sb">
+            <div class="namee">苏明理</div>
+            <div class="tag">二级建造师</div>
+        </div>
+        <div class="detail topDivide">
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">证件类型</div>
+                <div class="detailRight">居民身份证</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">证件号码</div>
+                <div class="detailRight">居民身份证</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">性别</div>
+                <div class="detailRight">居民身份证</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">注册单位</div>
+                <div class="detailRight">义县瑞丰建筑工程有限公司</div>
+            </div>
+        </div>
+        <div class="grades topDivide flexBox-sb flex-wrap">
+            <div class="item"><div class="grayWord">注册证书：<span class="blueWord">6</span>个</div></div>
+            <div class="item"><div class="grayWord">中标业绩：<span class="blueWord">8</span>个</div></div>
+            <div class="item"><div class="grayWord">四库业绩：<span class="blueWord">9</span>个</div></div>
+            <div class="item"><div class="grayWord">经营信息：<span class="blueWord">3</span>个</div></div>
+            <div class="item"><div class="grayWord">荣誉信息：<span class="blueWord">2</span>个</div></div>
+        </div>
+    </div>
+    <div class="block ">
+        <div class="name flexBox-ac">
+            <div class="blueDivide"></div>
+            <div class="namee">注册证书</div>
+        </div>
+        <div class="licenseList topDivide">
+            <div class="item">
+                <div class="licenseTitle">
+                    <div class="licenseName">二级注册建造书</div>
+                    <div class="licenseComp">注册单位：<span class="blueWord">中旺建设工程（吉林省）有限公司</span></div>
+                </div>
+                <div class="licenseInfo flexBox-sb flex-wrap">
+                    <div class="licenseInfoItem  grayWord">注册专业：建筑工程</div>
+                    <div class="licenseInfoItem  grayWord">执业印章号：辽99999999</div>
+                    <div class="licenseInfoItem  grayWord">证书编号：02199999</div>
+                    <div class="licenseInfoItem grayWord">有效期：2022-10-10</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="licenseTitle">
+                    <div class="licenseName">二级注册建造书</div>
+                    <div class="licenseComp">注册单位：<span class="blueWord">中旺建设工程（吉林省）有限公司</span></div>
+                </div>
+                <div class="licenseInfo flexBox-sb flex-wrap">
+                    <div class="licenseInfoItem  grayWord">注册专业：建筑工程</div>
+                    <div class="licenseInfoItem  grayWord">执业印章号：辽99999999</div>
+                    <div class="licenseInfoItem  grayWord">证书编号：02199999</div>
+                    <div class="licenseInfoItem grayWord">有效期：2022-10-10</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="name flexBox-ac">
+            <div class="blueDivide"></div>
+            <div class="namee">中标业绩</div>
+        </div>
+        <div class="licenseList topDivide">
+            <div class="item">
+                <div class="licenseTitle">
+                    <div class="licenseName">义县七里河初级中学食堂综合楼项目</div>
+                </div>
+                <div class="licenseInfo flexBox-sb flex-wrap">
+                    <div class="licenseInfoItem  grayWord">中标金额：300万</div>
+                    <div class="licenseInfoItem  grayWord">中标时间：2022-10-10</div>
+                    <div class="licenseInfoItem  grayWord">项目地区：辽宁省盘锦市</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="licenseTitle">
+                    <div class="licenseName">二级注册建造书</div>
+                </div>
+                <div class="licenseInfo flexBox-sb flex-wrap">
+                    <div class="licenseInfoItem  grayWord">中标金额：300万</div>
+                    <div class="licenseInfoItem  grayWord">中标时间：2022-10-10</div>
+                    <div class="licenseInfoItem  grayWord">项目地区：辽宁省盘锦市</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="name flexBox-ac">
+            <div class="blueDivide"></div>
+            <div class="namee">四库业绩</div>
+        </div>
+        <div class="detail topDivide">
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目名称</div>
+                <div class="detailRigh blueWord">义县七里河初级中学食堂综合楼项目</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目地区</div>
+                <div class="detailRight">项目地区：辽宁省盘锦市</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目类别</div>
+                <div class="detailRight">非生产星建筑</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">建筑单位</div>
+                <div class="detailRight">中国建筑工程（吉林省）有限公司</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目总投资（万元）</div>
+                <div class="detailRight">300</div>
+            </div>
+        </div>
+
+        <div class="detail topDivide">
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目名称</div>
+                <div class="detailRigh blueWord">义县七里河初级中学食堂综合楼项目</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目地区</div>
+                <div class="detailRight">项目地区：辽宁省盘锦市</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目类别</div>
+                <div class="detailRight">非生产星建筑</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">建筑单位</div>
+                <div class="detailRight">中国建筑工程（吉林省）有限公司</div>
+            </div>
+            <div class="flexBox-sb item">
+                <div class="detailLeft grayWord">项目总投资（万元）</div>
+                <div class="detailRight">300</div>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="name flexBox-ac">
+            <div class="blueDivide"></div>
+            <div class="namee">经营信息</div>
+        </div>
+    </div>
+    <div class="block hornorInfo">
+        <div class="name flexBox-ac">
+            <div class="blueDivide"></div>
+            <div class="namee">荣誉信息</div>
+        </div>
+        <div class="hornorInfoItem">
+            <div class="name flexBox-sb topDivide">
+                <div class="namee"><span class="grayWord">建造师：</span>苏明理</div>
+                <div class=""><span class="grayWord">获得时间：</span>201-02-08</div>
+                <div class="tag">工程荣誉</div> 
+                </br>
+            </div>
+            <div><span class="grayWord">相关工程：</span> 辽宁省盘锦市七里河初级中学食堂综合楼</div>
+        </div>
+        <div class="hornorInfoItem">
+            <div class="name flexBox-sb topDivide">
+                <div class="namee"><span class="grayWord">建造师：</span>苏明理</div>
+                <div class=""><span class="grayWord">获得时间：</span>201-02-08</div>
+                <div class="tag">工程荣誉</div> 
+                </br>
+            </div>
+            <div><span class="grayWord">相关工程：</span> 辽宁省盘锦市七里河初级中学食堂综合楼</div>
+        </div>
+        <div class="hornorInfoItem">
+            <div class="name flexBox-sb topDivide">
+                <div class="namee"><span class="grayWord">建造师：</span>苏明理</div>
+                <div class=""><span class="grayWord">获得时间：</span>201-02-08</div>
+                <div class="tag">工程荣誉</div> 
+                </br>
+            </div>
+            <div><span class="grayWord">相关工程：</span> 辽宁省盘锦市七里河初级中学食堂综合楼</div>
+        </div>
+    </div>
+</body>
+</html>
