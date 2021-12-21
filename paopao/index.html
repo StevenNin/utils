@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #box{
+            position: relative;
+        }
+        .bubble{
+            position: absolute;
+        }
+        .bubble:hover{
+            /*animation: scale(2,2s)*/
+            transform: scale(1.5);
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="box"></div>
+    <script>
+        var canvas =  document.getElementById('canvas')
+        var ctx = canvas.getContext("2d");
+        var image = new Image();
+        image.src = "yan.png";
+        image.onload = function(){
+            canvas.width  = image.width;
+            canvas.height = image.height;
+            ctx.drawImage(image,0,0)
+            console.log(image.width)
+
+            var imageData = ctx.getImageData(0,0,image.width,image.height).data
+            console.log(imageData,ctx.getImageData(0,0,image.width,image.height))
+            ctx.fillStyle = "#FFFFFF"
+            ctx.fillRect(0,0,image.width,image.height)
+
+            var gap = 6,
+                dragonScale =  2;
+                dragonBox  = document.getElementById("box")
+
+            for(var h = 0;  h<image.height; h+=gap){
+                for(var w = 0; w<image.width; w+= gap){
+                    var position = (image.width *h + w) *4
+                    var   r = imageData[position],
+                        g =  imageData[position+1],
+                        b = imageData[position+3];
+                         // console.log(position,r,g,b,333)
+                    if(r+g+b!==0){
+                        // ctx.fillStyle = "#000000"
+                        // ctx.fillRect(w,h,4,4);
+                        var bubble = document.createElement('img')
+                        bubble.src = "snow2.jpg"
+                        bubble.setAttribute("class","bubble");
+
+                        var bubbleSize = Math.random()*10 + 5;
+                        bubble.style.left = (w*dragonScale - bubbleSize/2) +'px'
+                        bubble.style.top = (h*dragonScale - bubbleSize/2) +'px'
+                        bubble.style.width = bubble.style.height = bubbleSize +'px'
+                        bubble.style.animationDuration  = Math.random()*6+4+"s"
+
+                        dragonBox.appendChild(bubble)
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
